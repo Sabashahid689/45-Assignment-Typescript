@@ -1,6 +1,12 @@
-//BMI Calculator Class 05 HomeWork
-let mass = 70; //60kg
-let height = 17.5; // 16.5m
-let bmi = mass / (height * height);
-console.log(`Saba your BMI is ${bmi}`);
-export {};
+//BMI CalCULATOR USING INQUIRER PROMPT
+import inquirer from "inquirer";
+const questions = [
+    { type: 'number', name: 'mass', message: 'mass(kg):' },
+    { type: 'number', name: 'height', message: 'height(m):' },
+];
+const calculatorBMI = (mass, height) => mass / (height);
+const main = async () => {
+    const { mass, height } = await inquirer.prompt(questions);
+    console.log(`BMI: ${calculatorBMI(mass, height).toFixed(2)}`);
+};
+main();
